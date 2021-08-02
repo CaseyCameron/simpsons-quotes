@@ -1,5 +1,6 @@
-export const getQuote = async () => {
-  let data = await fetch('https://damp-cove-34137.herokuapp.com/api/quotes/random');
-  console.log(data.json());
-  return data.json();
+export const fetchQuote = async () => {
+  let response = await fetch('https://damp-cove-34137.herokuapp.com/api/quotes/random');
+  let data = await response.json();
+  console.log(data);
+  return data;
 }
