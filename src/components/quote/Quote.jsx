@@ -1,8 +1,9 @@
 import React from 'react';
 
-const DisplayQuote = props => {
+const DisplayQuote = ({ quote }) => {
+  console.log('display props', quote);
   return (
-    <p>{props.children}</p>
+    <p>{quote}</p>
   );
 };
 

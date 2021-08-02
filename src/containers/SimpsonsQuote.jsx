@@ -6,14 +6,21 @@ import { fetchQuote } from '../services/simpsonsApi';
 const SimpsonsQuote = () => {
   const [quote, setQuote] = useState('quote')
 
-  const handleSubmit = () => {
-    setQuote(fetchQuote());
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = await fetchQuote();
+    console.log('before setting state', data);
+    setQuote(data);
+    console.log('after setQuote', quote);
+    console.log('you made it');
   }
 
   return (
     <>
-      <DisplayQuote>{quote}</DisplayQuote>
-      <Button type='submit' onClick={handleSubmit}>Get Quote</Button>
+      <DisplayQuote quote={quote} />
+      <form onSubmit={handleSubmit}>
+        <Button type='submit'>Get Quote</Button>
+      </form>
     </>
   );
 }
