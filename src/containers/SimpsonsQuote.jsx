@@ -3,9 +3,12 @@ import Button from '../components/quote/Load';
 import DisplayQuote from '../components/quote/Quote';
 
 const SimpsonsQuote = () => {
+
+
   return (
     <>
-      <Button type='submit'>Get Quote</Button>
+      <DisplayQuote>quote</DisplayQuote>
+      <Button type='submit' onClick={handleSubmit}>Get Quote</Button>
     </>
   );
 }
