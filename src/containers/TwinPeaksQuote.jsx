@@ -1,23 +1,20 @@
 import React, { useState } from 'react';
 import Button from '../components/quote/Load';
 import DisplayQuote from '../components/quote/Quote';
-import { fetchQuote } from '../services/simpsonsApi';
+import { fetchQuote } from '../services/twinPeaksApi';
 
 const SimpsonsQuote = () => {
-  const [quote, setQuote] = useState('quote')
+  const [quote, setQuote] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = await fetchQuote();
-    console.log('before setting state', data);
     setQuote(data);
-    console.log('after setQuote', quote);
-    console.log('you made it');
   }
 
   return (
     <>
-      <DisplayQuote quote={quote} />
+      <DisplayQuote>{quote}</DisplayQuote>
       <form onSubmit={handleSubmit}>
         <Button type='submit'>Get Quote</Button>
       </form>
